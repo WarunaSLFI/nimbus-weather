@@ -11,7 +11,7 @@ payload="$(cat)"
 # so a stray /tmp/CLAUDE.md can't bypass the check from a project path.
 file_path="$(printf '%s' "$payload" | jq -r '.tool_input.file_path // empty')"
 case "${file_path##*/}" in
-  CLAUDE.md|AGENTS.md|block-ai-attribution.sh) exit 0 ;;
+  CLAUDE.md|AGENTS.md|SKILL.md|block-ai-attribution.sh) exit 0 ;;
 esac
 
 haystack="$(
